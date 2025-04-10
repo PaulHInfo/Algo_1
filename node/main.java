@@ -7,6 +7,8 @@ public class main {
     public static void main(String[] args) {
         creatNode();
         show();
+        zip();
+        show();
     }
 
     public static void creatNode(){
@@ -28,5 +30,37 @@ public class main {
                 break;
             }
         }
+        System.out.println();
+        n = b;
+        while (true){
+            System.out.print(n.elt);
+            n = n.next;
+            if(n == null){
+                break;
+            }
+        }
+        System.out.println();
     }
+
+    public static void zip() {
+        if (a != null){
+            int i = 0;
+            Node tmp_a = a.next;
+            Node tmp_b = b.next;
+            while (true){
+                b.next = tmp_a;
+                a.next = b;
+                a = a.next;
+                b = b.next;
+                i++;
+                if(tmp_a.next != null && tmp_b.next != null){
+                    tmp_a = tmp_a.next;
+                    tmp_b = tmp_b.next;
+                }else{
+                    break;
+                }
+            }
+        }
+    }
+
 }
